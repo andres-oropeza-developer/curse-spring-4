@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.io.Serializable;
 
 @Repository("ContactJpaRepository")
-public interface ContactJpaRepository extends JpaRepository<ContactEntity, Serializable> {
+public interface ContactRepository extends JpaRepository<ContactEntity, Serializable> {
 
     public abstract ContactEntity getContactEntityById(int id);
 }

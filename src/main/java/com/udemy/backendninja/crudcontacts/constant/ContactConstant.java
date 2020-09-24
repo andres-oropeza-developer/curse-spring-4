@@ -3,9 +3,10 @@ package com.udemy.backendninja.crudcontacts.constant;
 public class ContactConstant {
 
     /* Direcciones URL */
-    public static final String URL_LOGIN         = "/login";
-    public static final String URL_CONTACTS      = "/contacts";
-    public static final String URL_MAIN          = "/contacts/main";
+    public static final String URL_LOGIN          = "/login";
+    public static final String URL_LOGIN_VALIDATE = "/login/success";
+    public static final String URL_CONTACTS       = "/contacts";
+    public static final String URL_SHOW_CONTACTS  = "/contacts/showcontacts";
     public static final String URL_CREATE_CONTACT = "/contacts/create";
     public static final String URL_UPDATE_CONTACT = "/contacts/update";
     public static final String URL_DELETE_CONTACT = "/contacts/delete";

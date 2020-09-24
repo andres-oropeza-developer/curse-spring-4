@@ -6,6 +6,7 @@ import com.udemy.backendninja.crudcontacts.converter.ContactModelToContactEntity
 import com.udemy.backendninja.crudcontacts.entity.ContactEntity;
 import com.udemy.backendninja.crudcontacts.log.Logger;
 import com.udemy.backendninja.crudcontacts.model.ContactModel;
+import com.udemy.backendninja.crudcontacts.model.UserModel;
 import com.udemy.backendninja.crudcontacts.service.ContactService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,14 +45,9 @@ public class ContactController {
     @Qualifier("ContactModelToContactEntity")
     ContactModelToContactEntity contactModelToContactEntity;
 
-    @RequestMapping(ContactConstant.URL_LOGIN)
-    public String loginPage() {
-        LOGGER.beginMethod(LOG_CLASS, "loginPage()",null);
-        LOGGER.endMethod(LOG_CLASS, "loginPage()", "login");
-        return "login";
-    }
 
-    @RequestMapping(ContactConstant.URL_MAIN)
+
+    @GetMapping(ContactConstant.URL_SHOW_CONTACTS)
     public ModelAndView mainPage() {
         LOGGER.beginMethod(LOG_CLASS, "mainPage()",null);
         List<ContactModel> listContactModel = new ArrayList<>();

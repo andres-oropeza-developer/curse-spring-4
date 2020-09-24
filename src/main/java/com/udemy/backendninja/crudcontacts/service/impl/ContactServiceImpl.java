@@ -3,7 +3,7 @@ package com.udemy.backendninja.crudcontacts.service.impl;
 import com.udemy.backendninja.crudcontacts.controller.ContactController;
 import com.udemy.backendninja.crudcontacts.entity.ContactEntity;
 import com.udemy.backendninja.crudcontacts.log.Logger;
-import com.udemy.backendninja.crudcontacts.repository.ContactJpaRepository;
+import com.udemy.backendninja.crudcontacts.repository.ContactRepository;
 import com.udemy.backendninja.crudcontacts.service.ContactService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -23,12 +23,12 @@ public class ContactServiceImpl implements ContactService {
 
     @Autowired
     @Qualifier("ContactJpaRepository")
-    ContactJpaRepository contactJpaRepository;
+    ContactRepository contactRepository;
 
     @Override
     public List<ContactEntity> getAllContacts(){
         LOGGER.beginMethod(LOG_CLASS, "getAllContacts()",null);
-        List<ContactEntity> listContactEntity = contactJpaRepository.findAll();
+        List<ContactEntity> listContactEntity = contactRepository.findAll();
         LOGGER.endMethod(LOG_CLASS, "getAllContacts()", listContactEntity);
         return listContactEntity;
     }
@@ -36,7 +36,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactEntity getContactById(int id) {
         LOGGER.beginMethod(LOG_CLASS, "getContactById()",id);
-        ContactEntity contactEntity = contactJpaRepository.getContactEntityById(id);
+        ContactEntity contactEntity = contactRepository.getContactEntityById(id);
         LOGGER.endMethod(LOG_CLASS, "getContactById()", contactEntity);
         return contactEntity;
     }
@@ -44,7 +44,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactEntity updateContact(ContactEntity contactEntity) {
         LOGGER.beginMethod(LOG_CLASS, "updateContact()",contactEntity);
-        ContactEntity contactEntityResult = contactJpaRepository.save(contactEntity);
+        ContactEntity contactEntityResult = contactRepository.save(contactEntity);
         LOGGER.endMethod(LOG_CLASS, "updateContact()", contactEntity);
         return contactEntityResult;
     }
@@ -52,7 +52,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactEntity saveContact(ContactEntity contactEntity) {
         LOGGER.beginMethod(LOG_CLASS, "saveContact()",contactEntity);
-        ContactEntity contactEntityResult = contactJpaRepository.save(contactEntity);
+        ContactEntity contactEntityResult = contactRepository.save(contactEntity);
         LOGGER.endMethod(LOG_CLASS, "saveContact()", contactEntity);
         return contactEntityResult;
     }
@@ -60,7 +60,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void deleteContact(ContactEntity contactEntity) {
         LOGGER.beginMethod(LOG_CLASS, "deleteContact()",contactEntity);
-        contactJpaRepository.delete(contactEntity);
+        contactRepository.delete(contactEntity);
         LOGGER.endMethod(LOG_CLASS, "deleteContact()", null);
     }
 }
