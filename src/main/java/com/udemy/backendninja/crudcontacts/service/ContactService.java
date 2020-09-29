@@ -13,6 +13,6 @@ public interface ContactService{
 
     public ContactEntity saveContact(ContactEntity contactEntity);
 
-    public void deleteContact(ContactEntity contactEntity);
+    public void deleteContactById(int id);
 
 }

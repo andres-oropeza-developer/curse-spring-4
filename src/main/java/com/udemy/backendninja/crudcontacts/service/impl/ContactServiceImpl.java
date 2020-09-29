@@ -58,9 +58,9 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void deleteContact(ContactEntity contactEntity) {
-        LOGGER.beginMethod(LOG_CLASS, "deleteContact()",contactEntity);
-        contactRepository.delete(contactEntity);
+    public void deleteContactById(int id) {
+        LOGGER.beginMethod(LOG_CLASS, "deleteContact()",id);
+        contactRepository.deleteById(id);
         LOGGER.endMethod(LOG_CLASS, "deleteContact()", null);
     }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crud Contact - Agregar / Modificar Contacto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Formulario de Contactos (de JOLLOS)</h1>
+        <br/>
+        <form th:action="${operation} =='create' ? @{/contacts/create} : @{/contacts/update}" th:object="${contact}" method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            Nombre: <input type="text" class="form-control" th:field="*{firstName}" th:value="${contact.getFirstName()}"/>
+            <br/>
+            Apellido: <input type="text" class="form-control" th:field="*{lastName}" th:value="${contact.getLastName()}"/>
+            <br/>
+            Telefono: <input type="text" class="form-control" th:field="*{phone}" th:value="${contact.getPhone()}"/>
+            <br/>
+            Ciudad: <input type="text" class="form-control" th:field="*{city}" th:value="${contact.getCity()}"/>
+            <br/>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar
+            </button>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
