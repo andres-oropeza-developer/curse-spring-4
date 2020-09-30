@@ -19,4 +19,8 @@ public class Logger {
     public void requestTime(Log logger, String url, long time) {
         logger.info("Request URL: " + url + " => " + "Total Time: " + time + " ms");
     }
+
+    public void simpleMessage(Log logger, String message) {
+        logger.info(message);
+    }
 }
