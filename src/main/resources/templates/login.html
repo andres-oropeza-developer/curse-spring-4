@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Crud Contacts</title>
+
+    <!--  Bootstrap Core CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--  Custom Styles For This Template  -->
+    <link href="#" th:ref="@{/css/login.css}" rel="stylesheet"/>
+    <link href="#" th:ref="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <form class="form-signin" method="POST" th:action="@{/login/validate}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <h2 class="form-signin-heading">Iniciar Sesion</h2>
+            <label for="username" class="sr-only">Usuario</label>
+            <input type="text" class="form-control" placeholder="Usuario" name="username" id="username"/>
+            <label for="password" class="sr-only">Clave</label>
+            <input type="password" class="form-control" placeholder="Clave" name="password" id="password"/>
+            <div th:if="${error != null}" class="alert alert-danger" role="alert">Usario o clave invalido</div>
+            <div th:if="${logout != null}" class="alert alert-info" role="alert">Sesion finalizada correctamente</div>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Iniciar Sesion
+            </button>
+        </form>
+    </div>
+</body>
+</html>
